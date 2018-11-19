@@ -1,3 +1,11 @@
+/*
+Bryce Schultz
+11/18/2018
+CS 133U
+
+Description: program does math.
+*/
+
 #include <iostream>
 #include <iomanip>
 #include <string>
