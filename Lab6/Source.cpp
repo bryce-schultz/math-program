@@ -31,11 +31,21 @@ void displayRestartMenu();
 int main() {
 	int menuChoice = 0;
 	int number = 0;
+	char choice = '\0';
 
-	number = getData();
-    displayMenu(menuChoice);
-	processMenuChoice(menuChoice, number);
-	displayRestartMenu();
+	do {
+		menuChoice = 0;
+		number = 0;
+		choice = '\0';
+		number = getData();
+		displayMenu(menuChoice);
+		processMenuChoice(menuChoice, number);
+
+		printMsg("\n\nWould you like to use the app again? (y/n): ");
+		cin >> choice;
+		choice = tolower(choice);
+		cout << '\n';
+	} while (choice != 'n');
 
 	return 0;
 }
