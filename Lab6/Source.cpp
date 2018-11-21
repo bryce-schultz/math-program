@@ -24,7 +24,6 @@ void isOddEven(int n);
 void displayAdditionTable();
 void displayMultiplicationTable();
 void printMsg(string msg, double n = 0, bool var = false);
-void displayRestartMenu();
 
 
 //main function
@@ -105,16 +104,6 @@ int getData() {
 	return number;
 }
 
-//menu to restart the application
-void displayRestartMenu() {
-	char choice = '\0';
-	printMsg("\n\nWould you like to use the app again? (y/n): ");
-	cin >> choice;
-	choice = tolower(choice);
-	cout << '\n';
-	if (choice == 'y') main();
-}
-
 //display the main menu
 void displayMenu(int &c) {
 	cout << "\n1) Is the number odd or even?\n"
@@ -188,28 +177,18 @@ void processMenuChoice(int c, int &n) {
 		{
 			//invalid input
 			cout << "\nInvalid menu choice\n\n";
-			main();
 		}
 	}
 }
 
-//get a digit at a position in an int
+//find a digit in a number
 int findDigitAtPosition(int n, int p) {
-	int a = n / pow(10, p-1);
-	int b = n / pow(10, p);
-	int c = a-b*10;
-	return c;
+	int a = pow(10, p-1);
+	int b = n / a;
+	int c = n / (a * 10);
+	return b - c * 10;
 }
 
-//optimized findDigitAtPosition function, uses only one pow function
-/*
-int findDigitAtPosition(int n, int p) {
-//	int a = pow(10, p-1);
-//	int b = n / a;
-//	int c = n / (a * 10);
-//	return b - c * 10;
-}
-*/
 
 //find the number of digits in an int
 int findNumDigits(int n) {
